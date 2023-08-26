@@ -1,4 +1,4 @@
-package com.rminaya.clothes.store.clothes_store.domain.entities;
+package com.rminaya.clothes.store.clothes_store.util.enums;
 
 public enum Operacion {
     VENTA(1L),

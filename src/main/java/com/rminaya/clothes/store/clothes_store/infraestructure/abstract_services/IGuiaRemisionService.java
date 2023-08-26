@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-public interface GuiaRemisionService {
+public interface IGuiaRemisionService {
     List<GuiaRemisionEntity> findAll();
     Page<GuiaRemisionEntity> findAll(Integer page);
     GuiaRemisionEntity findById(Long id);

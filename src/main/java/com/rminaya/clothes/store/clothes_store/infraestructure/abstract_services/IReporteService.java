@@ -6,7 +6,7 @@ import com.rminaya.clothes.store.clothes_store.api.models.responses.ReporteRegis
 
 import java.util.List;
 
-public interface ReporteService {
+public interface IReporteService {
     List<ReporteRegistroVentasResponse> registroVentas(String fechaInicio, String fechaFin);
     List<ReporteKardexPorProductoResponse> kardexPorProducto(String productoId);
     List<ReporteLiquidacionResponse> liquidacionProveedores(String proveedorId, String fechaInicio, String fechaFin);

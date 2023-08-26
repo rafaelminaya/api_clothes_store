@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-public interface BoletaVentaService {
+public interface IBoletaVentaService {
     List<BoletaVentaEntity> findAll();
     Page<BoletaVentaEntity> findAll(Integer page);
     BoletaVentaEntity findById(Long id);
