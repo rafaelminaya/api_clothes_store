@@ -2,7 +2,6 @@ package com.rminaya.clothes.store.clothes_store.api.controllers;
 
 import com.rminaya.clothes.store.clothes_store.api.models.requests.ProductoRequest;
 import com.rminaya.clothes.store.clothes_store.api.models.responses.ProductoResponse;
-import com.rminaya.clothes.store.clothes_store.domain.entities.ProductoEntity;
 import com.rminaya.clothes.store.clothes_store.infraestructure.abstract_services.IProductoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -37,13 +36,13 @@ public class ProductoController {
 
     @GetMapping("/{id}/by-marca")
     @Operation(summary = "Devuelve todos los productos segun una marcaId dado")
-    public ResponseEntity<List<ProductoResponse>> getProductosByMarcaId(@PathVariable("id") Long marcaId){
+    public ResponseEntity<List<ProductoResponse>> getProductosByMarcaId(@PathVariable("id") Long marcaId) {
         return ResponseEntity.ok(this.productoService.findByMarcaId(marcaId));
     }
 
     @GetMapping("/by-filtro-venta")
     @Operation(summary = "Devuelve todos los productos cuyos codigo o nombre coincida por el filtro dado")
-    public ResponseEntity<List<ProductoResponse>> getProductosByFiltroVenta(@RequestParam("termino") String termino){
+    public ResponseEntity<List<ProductoResponse>> getProductosByFiltroVenta(@RequestParam("termino") String termino) {
         return ResponseEntity.ok(this.productoService.findByFiltroVenta(termino));
     }
 

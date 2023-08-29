@@ -1,6 +1,6 @@
 package com.rminaya.clothes.store.clothes_store.domain.repositories;
 
-import com.rminaya.clothes.store.clothes_store.api.models.responses.ReporteKardexPorProductoResponse;
+import com.rminaya.clothes.store.clothes_store.api.models.responses.IReporteKardexPorProductoResponse;
 import com.rminaya.clothes.store.clothes_store.domain.entities.KardexDetalleEntity;
 import com.rminaya.clothes.store.clothes_store.domain.entities.KardexEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -26,5 +26,5 @@ public interface KardexRepository extends JpaRepository<KardexEntity, Long> {
     KardexDetalleEntity KardexDetalleUltimoSaldoCantidad2(Long produtoId, LocalDateTime fechaEmision);
 
     @Query("SELECT k.id AS id, p.id AS productoId, k.fechaEmision AS fechaEmision, k.numero AS numero, t.nombre AS tipoOperacion, kd.entradaCantidad AS entradaCantidad, kd.entradaPrecio AS entradaPrecio, kd.entradaTotal AS entradaTotal, kd.salidaCantidad AS salidaCantidad, kd.salidaPrecio AS salidaPrecio, kd.salidaTotal AS salidaTotal, kd.saldoCantidad AS saldoCantidad, kd.saldoPrecio AS saldoPrecio, kd.saldoTotal AS saldoTotal FROM KardexEntity AS k JOIN k.tipoOperacion as t JOIN k.kardexDetalles AS kd JOIN kd.producto AS p WHERE p.id = :producto_id AND k.eliminado = 0 AND kd.eliminado = 0 ORDER BY k.fechaEmision DESC, k.id DESC, kd.id DESC")
-    List<ReporteKardexPorProductoResponse> findByProductoId(@Param("producto_id") Long productoId);
+    List<IReporteKardexPorProductoResponse> findByProductoId(@Param("producto_id") Long productoId);
 }

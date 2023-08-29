@@ -1,11 +1,7 @@
 package com.rminaya.clothes.store.clothes_store.api.controllers;
 
-import com.rminaya.clothes.store.clothes_store.api.models.requests.MarcaRequest;
 import com.rminaya.clothes.store.clothes_store.api.models.requests.ProveedorRequest;
-import com.rminaya.clothes.store.clothes_store.api.models.responses.MarcaResponse;
 import com.rminaya.clothes.store.clothes_store.api.models.responses.ProveedorResponse;
-import com.rminaya.clothes.store.clothes_store.domain.entities.MarcaEntity;
-import com.rminaya.clothes.store.clothes_store.domain.entities.ProveedorEntity;
 import com.rminaya.clothes.store.clothes_store.infraestructure.abstract_services.IProveedorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

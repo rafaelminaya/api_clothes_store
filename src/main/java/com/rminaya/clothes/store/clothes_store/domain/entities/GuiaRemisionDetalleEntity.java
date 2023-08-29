@@ -2,15 +2,12 @@ package com.rminaya.clothes.store.clothes_store.domain.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "guia_emision_detalle")
+@Table(name = "guia_remision_detalle")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -25,7 +22,6 @@ public class GuiaRemisionDetalleEntity {
     @JoinColumn(name = "producto_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private ProductoEntity producto;
-
     @ManyToOne(fetch = FetchType.LAZY)
     //@JoinColumn(name = "guia_remision_id")
     @JsonIgnoreProperties(value = {"guiaRemisionDetalles","hibernateLazyInitializer", "handler"}, allowSetters = true)

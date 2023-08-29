@@ -15,11 +15,12 @@ import java.util.List;
 @Data
 @Builder
 public class BoletaVentaRequest {
-    @NotBlank
+    @NotBlank(message = "no puede estar vacío.")
     @Size(min = 3, max = 6, message = "debe tener entre 3 y 6 caracteres.")
     private String numero;
     @NotNull
     private ClienteRequest cliente;
     @NotNull
+    @Size(min = 1, message = "debe tener minimo 1 detalle por boleta de venta")
     private List<BoletaVentaDetalleRequest> boletaVentaDetalles;
 }

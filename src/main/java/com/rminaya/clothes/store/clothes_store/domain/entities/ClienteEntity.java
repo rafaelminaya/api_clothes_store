@@ -1,7 +1,6 @@
 package com.rminaya.clothes.store.clothes_store.domain.entities;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -13,7 +12,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder(toBuilder = true)
+@SuperBuilder
 public class ClienteEntity extends Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -9,16 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class ProductoResponse {
+public class BoletaVentaDetalleResponse {
     private Long id;
-    private String codigo;
-    private String nombre;
-    private String talla;
-    private String color;
+    private Integer cantidad;
     private Double precioCompra;
     private Double precioVenta;
-    private Integer stock;
-    private MarcaResponse marca;
-    // Obtenidos por metodos en el entity
-    private String cadenaProducto;
+    private Double baseImponible;
+    private Double importeIgv;
+    private Double totalDetalle;
+    private Boolean eliminado;
+    private ProductoResponse producto;
 }

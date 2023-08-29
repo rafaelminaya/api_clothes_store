@@ -1,7 +1,8 @@
 package com.rminaya.clothes.store.clothes_store.domain.repositories;
 
+import com.rminaya.clothes.store.clothes_store.api.models.responses.IReporteLiquidacionResponse;
+import com.rminaya.clothes.store.clothes_store.api.models.responses.IReporteRegistroVentasResponse;
 import com.rminaya.clothes.store.clothes_store.api.models.responses.ReporteLiquidacionResponse;
-import com.rminaya.clothes.store.clothes_store.api.models.responses.ReporteRegistroVentasResponse;
 import com.rminaya.clothes.store.clothes_store.domain.entities.BoletaVentaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -27,7 +28,7 @@ public interface BoletaVentaRepository extends JpaRepository<BoletaVentaEntity, 
             "on bol.cliente_id = cli.id " +
             "where bol.fecha_emision between :fecha_inicio and :fecha_fin " +
             "order by bol.fecha_emision asc, bol.id asc", nativeQuery = true)
-    List<ReporteRegistroVentasResponse> reporteVenta(@Param("fecha_inicio") LocalDateTime fechaInicio, @Param("fecha_fin") LocalDateTime fechaFin);
+    List<IReporteRegistroVentasResponse> reporteVenta(@Param("fecha_inicio") LocalDateTime fechaInicio, @Param("fecha_fin") LocalDateTime fechaFin);
 
 
     @Query("SELECT b FROM BoletaVentaEntity AS b JOIN FETCH b.boletaVentaDetalles bt JOIN FETCH bt.producto AS p WHERE p.id IN :productos AND b.fechaEmision BETWEEN :fecha_inicio AND :fecha_fin")
@@ -52,7 +53,7 @@ public interface BoletaVentaRepository extends JpaRepository<BoletaVentaEntity, 
             "WHERE p.id IN :productos AND b.eliminado = 0 " +
             "AND b.fechaEmision BETWEEN :fecha_inicio AND :fecha_fin " +
             "GROUP BY p.id")
-    List<ReporteLiquidacionResponse> findByProductosAgrupados(@Param("productos") List<Long> productosByProveedor, @Param("fecha_inicio") LocalDateTime fechaInicio, @Param("fecha_fin") LocalDateTime fechaFin);
+    List<IReporteLiquidacionResponse> findByProductosAgrupados(@Param("productos") List<Long> productosByProveedor, @Param("fecha_inicio") LocalDateTime fechaInicio, @Param("fecha_fin") LocalDateTime fechaFin);
 
     @Query("SELECT b.id AS boletaId, " +
             "b.numero AS boletaNumero, " +

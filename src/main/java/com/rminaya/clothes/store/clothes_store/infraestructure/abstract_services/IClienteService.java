@@ -2,7 +2,6 @@ package com.rminaya.clothes.store.clothes_store.infraestructure.abstract_service
 
 import com.rminaya.clothes.store.clothes_store.api.models.requests.ClienteRequest;
 import com.rminaya.clothes.store.clothes_store.api.models.responses.ClienteResponse;
-import com.rminaya.clothes.store.clothes_store.domain.entities.ClienteEntity;
 import com.rminaya.clothes.store.clothes_store.infraestructure.abstract_services.common.CrudService;
 import org.springframework.data.domain.Page;
 
